@@ -4,8 +4,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Runtime.Serialization;
+using System.Threading.Tasks;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -19,32 +25,86 @@ using Windows.UI.Xaml.Navigation;
 namespace Nawigacja
 {
 
-    
-        public sealed partial class MainPage : Page
-        {
 
-        SettingsTheme settings=new SettingsTheme();
+    public sealed partial class MainPage : Page
+    {
+
+        SettingsTheme settings = new SettingsTheme();
         public MainPage()
+        {
+            this.InitializeComponent();
+            ContentFrame.Navigate(typeof(StartPage));
+            Application.Current.Suspending += new SuspendingEventHandler(App_Suspending);
+        }
+        private Dictionary<string, object> _store;
+        private readonly string _saveFileName = "store.xml";
+        async void App_Suspending(
+        Object sender,
+        Windows.ApplicationModel.SuspendingEventArgs e)
+        {
+            // TODO: This is the time to save app data in case the process is terminated.
+            _store = new Dictionary<string, object>();
+            //_store.Add("theme", AppSettings.Current.ThemeSTR);
+            _store.Add("promienKola", AppSettings.Current.PromienKola);
+            _store.Add("bokKwadratu", AppSettings.Current.BokKwadrat);
+            _store.Add("bokAProstokata", AppSettings.Current.BokAProstokat);
+            _store.Add("bokBProstokata", AppSettings.Current.BokBProstokat);
+            _store.Add("podstawaTrojkata", AppSettings.Current.PodstawaTrojkat);
+
+            Frame currentFrame = Window.Current.Content as Frame;
+            //dokumentacja ze tak sie to robi https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.frame.getnavigationstate?view=winrt-19041
+            _store.Add("frame", currentFrame.GetNavigationState());
+
+            await SaveStateAsync();
+        }
+
+        private async Task SaveStateAsync()
+        {
+            var ms = new MemoryStream();
+            var serializer = new DataContractSerializer(typeof(Dictionary<string, object>));
+            serializer.WriteObject(ms, _store);
+
+            var file = await ApplicationData.Current.LocalFolder.CreateFileAsync(_saveFileName, CreationCollisionOption.ReplaceExisting);
+
+            using (var fs = await file.OpenStreamForWriteAsync())
             {
-                this.InitializeComponent();
+                //because we have written to the stream, set the position back to start
+                ms.Seek(0, SeekOrigin.Begin);
+                await ms.CopyToAsync(fs);
+                await fs.FlushAsync();
             }
-
-        private void Pierwsze_zachorowania_polska_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            ContentFrame.Navigate(typeof(PierwszeZachorowania));
         }
 
-        private void LiczbaZachorowan_polska_Tapped(object sender, TappedRoutedEventArgs e)
+        private async Task ReadStateAsync()
         {
-            ContentFrame.Navigate(typeof(LiczbaZachorowan));
+            var file = await ApplicationData.Current.LocalFolder.GetFileAsync(_saveFileName);
+            if (file == null) return;
+
+            using (IInputStream stream = await file.OpenSequentialReadAsync())
+            {
+                var serializer = new DataContractSerializer(typeof(Dictionary<string, object>));
+                _store = (Dictionary<string, object>)serializer.ReadObject(stream.AsStreamForRead());
+            }
         }
-        private void Pierwsze_zachorowania_swiat_Tapped(object sender, TappedRoutedEventArgs e)
+
+
+        private void Kolo_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            ContentFrame.Navigate(typeof(PierwszeZachorowaniaSwiat));
+            Frame.Navigate(typeof(KoloScena));
+            //ContentFrame.Navigate(typeof(KoloScena));
         }
-        private void LiczbaZachorowan_Swiat_Tapped(object sender, TappedRoutedEventArgs e)
+
+        private void Trojkat_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            ContentFrame.Navigate(typeof(LiczbaZachorowanSwiat));
+            Frame.Navigate(typeof(TrojkatScena));
+        }
+        private void Kwadrat_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(KwadratScena));
+        }
+        private void Prostokat_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(ProstokatScena));
         }
         private void Statystyki_Tapped(object sender, TappedRoutedEventArgs e)
         {
@@ -55,25 +115,40 @@ namespace Nawigacja
             ContentFrame.Navigate(typeof(Profilaktyka));
         }
 
-         
+        private void Trojkat_Img_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(TrojkatScena));
+        }
+        private void Kolo_Img_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(KoloScena));
+        }
+        private void Kwadrat_Img_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(KwadratScena));
+        }
+        private void Prostokat_Img_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ProstokatScena));
+        }
 
         private void PanelNawigacyjny_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            if (args.IsSettingsSelected)
             {
-                if (args.IsSettingsSelected)
-                {
-                    ContentFrame.Navigate(typeof(Settings), settings);
-                }
+                ContentFrame.Navigate(typeof(Settings), settings);
             }
+        }
 
-            private void PanelNawigacyjny_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
-            {
-                if (ContentFrame.CanGoBack)
-                    ContentFrame.GoBack();
-            }
+        private void PanelNawigacyjny_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+        {
+            if (ContentFrame.CanGoBack)
+                ContentFrame.GoBack();
+        }
 
-        private string[] suggestions = new string[] { "Liczba zachorowań w polsce", "Liczba zachorowań na świecie", "Pierwsze zachorowania w Polsce", "Pierwsze zachorowania na świecie", "Statystyki", "Profilaktyka" };
+        private string[] suggestions = new string[] { "Koło", "Kwadrat", "Prostokat", "Trojkat", "Statystyki", "Profilaktyka" };
         private void AutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
-            {
+        {
             if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
             {
                 string text = sender.Text;
@@ -89,21 +164,21 @@ namespace Nawigacja
             }
             switch (sender.Text)
             {
-                case "Liczba zachorowań w polsce":
+                case "Koło":
 
-                    ContentFrame.Navigate(typeof(LiczbaZachorowan));
+                    ContentFrame.Navigate(typeof(KoloScena));
                     break;
-                case "Liczba zachorowań na świecie":
+                case "Trojkat":
 
-                    ContentFrame.Navigate(typeof(LiczbaZachorowanSwiat));
+                    ContentFrame.Navigate(typeof(TrojkatScena));
                     break;
-                case "Pierwsze zachorowania w Polsce":
+                case "Prostokat":
 
-                    ContentFrame.Navigate(typeof(PierwszeZachorowania));
+                    ContentFrame.Navigate(typeof(ProstokatScena));
                     break;
-                case "Pierwsze zachorowania na świecie":
+                case "Kwadrat":
 
-                    ContentFrame.Navigate(typeof(PierwszeZachorowaniaSwiat));
+                    ContentFrame.Navigate(typeof(KwadratScena));
                     break;
                 case "Statystyki":
 
@@ -115,7 +190,8 @@ namespace Nawigacja
                     break;
             }
         }
-           
-        }
-    
+
+        
+    }
+
 }

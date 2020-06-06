@@ -20,22 +20,29 @@ namespace Nawigacja.Sceny
     /// <summary>
     /// Pusta strona, która może być używana samodzielnie lub do której można nawigować wewnątrz ramki.
     /// </summary>
-    public sealed partial class Settings : Page
+    public sealed partial class KoloScena : Page
     {
-        public Settings()
+        public KoloScena()
         {
             this.InitializeComponent();
+            if (AppSettings.Current.PromienKola != 0)
+                Promien_TextBlock.Text = AppSettings.Current.PromienKola.ToString();
         }
-        string theme;
-        public string Theme { get => theme; set => theme = value; }
-        private void DarkTheme_Button_Tapped(object sender, TappedRoutedEventArgs e)
+
+        private void Oblicz_Button_Click(object sender, RoutedEventArgs e)
         {
-            AppSettings.Current.ThemeSTR = "Dark";
+            double promien = double.Parse(Promien_TextBlock.Text);
+
+            double obwod = 2 * Math.PI * promien;
+            double pole = Math.PI * Math.Pow(promien, 2);
+            obwodWynik_TB.Text = obwod.ToString();
+            poleWynik_TB.Text = pole.ToString();
+            AppSettings.Current.PromienKola = promien;
         }
-        private void LightTheme_Button_Tapped(object sender, TappedRoutedEventArgs e)
+
+        private void Powrot_Button_Click(object sender, RoutedEventArgs e)
         {
-            AppSettings.Current.ThemeSTR = "Light";
+            Frame.GoBack();
         }
-        
     }
 }

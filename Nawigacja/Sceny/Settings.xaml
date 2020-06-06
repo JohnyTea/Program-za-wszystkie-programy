@@ -13,7 +13,12 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="DarkTheme_Button" Content="Tryb Ciemny" Tapped="DarkTheme_Button_Tapped" Grid.Column="0"/>
-        <Button x:Name="LightTheme_Button" Content="Tryb Jasny" Tapped="LightTheme_Button_Tapped" Grid.Column="1"/>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="DarkTheme_Button" Content="Tryb Ciemny" Tapped="DarkTheme_Button_Tapped" Grid.Column="0" Grid.Row="0"/>
+        <Button x:Name="LightTheme_Button" Content="Tryb Jasny" Tapped="LightTheme_Button_Tapped" Grid.Column="1" Grid.Row="0"/>
+        <TextBlock x:Name="Theme_TexBlock" Grid.Column="1" Grid.Row="1"/>
     </Grid>
 </Page>

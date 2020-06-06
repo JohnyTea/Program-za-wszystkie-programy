@@ -20,22 +20,31 @@ namespace Nawigacja.Sceny
     /// <summary>
     /// Pusta strona, która może być używana samodzielnie lub do której można nawigować wewnątrz ramki.
     /// </summary>
-    public sealed partial class Settings : Page
+    public sealed partial class KwadratScena : Page
     {
-        public Settings()
+        public KwadratScena()
         {
             this.InitializeComponent();
+            if (AppSettings.Current.BokKwadrat != 0)
+                DlugoscBokuTextBlock.Text = AppSettings.Current.BokKwadrat.ToString();
         }
-        string theme;
-        public string Theme { get => theme; set => theme = value; }
-        private void DarkTheme_Button_Tapped(object sender, TappedRoutedEventArgs e)
+
+       
+      
+        private void Oblicz_Button_Click(object sender, RoutedEventArgs e)
         {
-            AppSettings.Current.ThemeSTR = "Dark";
+            double bok;
+            bok = double.Parse(DlugoscBokuTextBlock.Text);
+            double obwod = bok * 4;
+            double pole = bok * bok;
+            obwodWynik_TB.Text = obwod.ToString();
+            poleWynik_TB.Text = pole.ToString();
+            AppSettings.Current.BokKwadrat = bok;
         }
-        private void LightTheme_Button_Tapped(object sender, TappedRoutedEventArgs e)
+
+        private void Powrot_Button_Click(object sender, RoutedEventArgs e)
         {
-            AppSettings.Current.ThemeSTR = "Light";
+            this.Frame.GoBack();
         }
-        
     }
 }

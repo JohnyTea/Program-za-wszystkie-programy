@@ -119,30 +119,34 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sceny\LiczbaZachorowan.xaml.cs">
-      <DependentUpon>LiczbaZachorowan.xaml</DependentUpon>
+    <Compile Include="Sceny\AppSettings.cs" />
+    <Compile Include="Sceny\KoloScena.xaml.cs">
+      <DependentUpon>KoloScena.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sceny\LiczbaZachorowanSwiat.xaml.cs">
-      <DependentUpon>LiczbaZachorowanSwiat.xaml</DependentUpon>
+    <Compile Include="Sceny\KwadratScena.xaml.cs">
+      <DependentUpon>KwadratScena.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sceny\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Sceny\PierwszeZachorowania.xaml.cs">
-      <DependentUpon>PierwszeZachorowania.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Sceny\PierwszeZachorowaniaSwiat.xaml.cs">
-      <DependentUpon>PierwszeZachorowaniaSwiat.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sceny\Profilaktyka.xaml.cs">
       <DependentUpon>Profilaktyka.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sceny\ProstokatScena.xaml.cs">
+      <DependentUpon>ProstokatScena.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sceny\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Sceny\StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sceny\Statystyki.xaml.cs">
       <DependentUpon>Statystyki.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sceny\TrojkatScena.xaml.cs">
+      <DependentUpon>TrojkatScena.xaml</DependentUpon>
     </Compile>
     <Compile Include="SettingsTheme.cs" />
   </ItemGroup>
@@ -152,6 +156,10 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\kolo.jpg" />
+    <Content Include="Assets\kwadrat.jpg" />
+    <Content Include="Assets\prostokat.jpg" />
+    <Content Include="Assets\trojkat.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -166,11 +174,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Sceny\LiczbaZachorowan.xaml">
+    <Page Include="Sceny\KoloScena.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sceny\LiczbaZachorowanSwiat.xaml">
+    <Page Include="Sceny\KwadratScena.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,15 +186,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Sceny\PierwszeZachorowania.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Sceny\PierwszeZachorowaniaSwiat.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Sceny\Profilaktyka.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sceny\ProstokatScena.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -194,7 +198,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Sceny\StartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Sceny\Statystyki.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sceny\TrojkatScena.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

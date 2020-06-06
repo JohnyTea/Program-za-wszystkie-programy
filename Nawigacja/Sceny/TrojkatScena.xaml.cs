@@ -20,22 +20,32 @@ namespace Nawigacja.Sceny
     /// <summary>
     /// Pusta strona, która może być używana samodzielnie lub do której można nawigować wewnątrz ramki.
     /// </summary>
-    public sealed partial class Settings : Page
+    public sealed partial class TrojkatScena : Page
     {
-        public Settings()
+        public TrojkatScena()
         {
             this.InitializeComponent();
+            if(AppSettings.Current.PodstawaTrojkat != 0)
+            PodstawaTextBlock.Text = AppSettings.Current.PodstawaTrojkat.ToString();
         }
-        string theme;
-        public string Theme { get => theme; set => theme = value; }
-        private void DarkTheme_Button_Tapped(object sender, TappedRoutedEventArgs e)
+
+        private void Oblicz_Button_Click(object sender, RoutedEventArgs e)
         {
-            AppSettings.Current.ThemeSTR = "Dark";
+            double podstawa;
+            podstawa = double.Parse(PodstawaTextBlock.Text);
+            double obwod = podstawa * 3;
+            double pole = podstawa*podstawa*Math.Sqrt(3)/4;
+            obwodWynik_TB.Text = obwod.ToString();
+            poleWynik_TB.Text = pole.ToString();
+
+           AppSettings.Current.PodstawaTrojkat = podstawa;
         }
-        private void LightTheme_Button_Tapped(object sender, TappedRoutedEventArgs e)
+
+        private void Powrot_Button_Click(object sender, RoutedEventArgs e)
         {
-            AppSettings.Current.ThemeSTR = "Light";
+            this.Frame.GoBack();
         }
-        
+
+
     }
 }

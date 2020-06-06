@@ -9,7 +9,7 @@ namespace Nawigacja
 {
     class SettingsTheme : INotifyPropertyChanged
     {
-        private string zmianaTheme;
+        public static string zmianaTheme;
         public SettingsTheme()
         {
             zmianaTheme = "Light";
