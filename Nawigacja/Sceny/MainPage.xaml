@@ -1,0 +1,80 @@
+﻿<Page
+    x:Class="Nawigacja.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Nawigacja"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    RequestedTheme="{x:Bind settings.ZmianaTheme, Mode=OneWay}">
+
+    <Grid>
+        <!--Niestadardowe wielkosci  CompactModeThresholdWidth="600" ExpandedModeThresholdWidth="1200"-->
+        <NavigationView  AlwaysShowHeader="True" x:Name="PanelNawigacyjny" PaneDisplayMode="Auto"  CompactModeThresholdWidth="600" ExpandedModeThresholdWidth="1200" 
+                        SelectionChanged="PanelNawigacyjny_SelectionChanged" BackRequested="PanelNawigacyjny_BackRequested"
+                        IsBackEnabled="True" IsSettingsVisible="True" FontSize="68">
+
+
+            <NavigationView.PaneHeader>
+                <RelativePanel HorizontalAlignment="Center" VerticalAlignment="Center"  Width="auto" Height="auto">
+                    <Image x:Name="Logo" Source="Assets/StoreLogo.png" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Koronka" FontSize="40" RelativePanel.RightOf="Logo" VerticalAlignment="Center" />
+                </RelativePanel>
+            </NavigationView.PaneHeader>
+
+            <NavigationView.MenuItems>
+                <AutoSuggestBox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" PlaceholderText="Szukaj" QueryIcon="Find" Width="200" TextChanged="AutoSuggestBox_TextChanged" />
+
+                <NavigationViewItemSeparator/>
+                
+                <NavigationViewItemHeader x:Name="HistoriaHeader" Content="Polska"  />
+
+                <NavigationViewItem Tag="opcja1" x:Name="Pierwsze_zachorowania_polska" Tapped="Pierwsze_zachorowania_polska_Tapped" Icon="Calendar">
+                    <TextBlock Text="Pierwsze zachorowania"/>
+                </NavigationViewItem>
+
+                <NavigationViewItem Tag ="opcja2" x:Name="LiczbaZachorowan_polska" Tapped="LiczbaZachorowan_polska_Tapped" Icon="Calculator">
+                    <TextBlock   Text="Liczba zachorowań w Polsce"/>
+                </NavigationViewItem>
+                
+                <NavigationViewItemSeparator/>
+
+                <NavigationViewItemHeader Content="Świat" />
+
+                <NavigationViewItem Tag="opcja3" Icon="Calendar" x:Name="Pierwsze_zachorowania_swiat" Tapped="Pierwsze_zachorowania_swiat_Tapped">
+                    <TextBlock   Text="Pierwsze zachorowania na świecie"/>
+                </NavigationViewItem>
+
+                <NavigationViewItem Tag="opcja4" Icon="Calculator" x:Name="LiczbaZachorowan_Swiat" Tapped="LiczbaZachorowan_Swiat_Tapped">
+                    <TextBlock   Text="Liczba zachorowań na świecie"/>
+                </NavigationViewItem>
+                
+                <NavigationViewItemSeparator/>
+
+                <NavigationViewItemHeader Content="Statystyki"/>
+
+                <NavigationViewItem Tag="opcja5" Icon="CalendarWeek" x:Name="Statystyki" Tapped="Statystyki_Tapped">
+                    <TextBlock Text="Statystyki"/>
+                </NavigationViewItem>
+
+                <NavigationViewItem Tag="opcja6" Icon="Accept" x:Name="Profilaktyka" Tapped="Profilaktyka_Tapped">
+                    <TextBlock Text="Profilaktyka"/>
+                </NavigationViewItem>
+
+            </NavigationView.MenuItems>
+
+            <Frame x:Name="ContentFrame">
+                <Frame.ContentTransitions>
+                    <TransitionCollection>
+                        <NavigationThemeTransition/>
+                    </TransitionCollection>
+                </Frame.ContentTransitions>
+            </Frame>
+
+
+        </NavigationView>
+
+
+    </Grid>
+</Page>

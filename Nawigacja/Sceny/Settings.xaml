@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="Nawigacja.Sceny.Settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Nawigacja.Sceny"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="DarkTheme_Button" Content="Tryb Ciemny" Tapped="DarkTheme_Button_Tapped" Grid.Column="0"/>
+        <Button x:Name="LightTheme_Button" Content="Tryb Jasny" Tapped="LightTheme_Button_Tapped" Grid.Column="1"/>
+    </Grid>
+</Page>
