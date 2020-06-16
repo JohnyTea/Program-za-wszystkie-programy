@@ -17,8 +17,19 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button x:Name="DarkTheme_Button" Content="Tryb Ciemny" Tapped="DarkTheme_Button_Tapped" Grid.Column="0" Grid.Row="0"/>
-        <Button x:Name="LightTheme_Button" Content="Tryb Jasny" Tapped="LightTheme_Button_Tapped" Grid.Column="1" Grid.Row="0"/>
-        <TextBlock x:Name="Theme_TexBlock" Grid.Column="1" Grid.Row="1"/>
+        <Button x:Name="DarkTheme_Button" Content="Tryb Ciemny" Tapped="DarkTheme_Button_Tapped" Grid.Column="0" Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
+        <Button x:Name="LightTheme_Button" Content="Tryb Jasny" Tapped="LightTheme_Button_Tapped" Grid.Column="1" Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
+        <Button  Grid.Row="1" Grid.Column="1" x:Uid="con_angielski" FontSize="48" 
+                HorizontalAlignment="Center" VerticalAlignment="Center" 
+                 Tapped="JAngielski_Button_Tapped"/>
+        <Button  Grid.Row="1" Grid.Column="0" x:Uid="con_polski" FontSize="48" 
+                HorizontalAlignment="Center" VerticalAlignment="Center" 
+                 Tapped="JPolski_Button_Tapped"/>
+
+        <NavigationView AlwaysShowHeader="True" x:Name="PanelNawigacyjny" PaneDisplayMode="Top"
+                        BackRequested="PanelNawigacyjny_BackRequested"
+                        IsBackEnabled="True" IsSettingsVisible="False" FontSize="68">
+
+        </NavigationView>
     </Grid>
 </Page>

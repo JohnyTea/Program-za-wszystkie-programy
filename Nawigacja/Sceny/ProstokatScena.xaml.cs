@@ -25,11 +25,7 @@ namespace Nawigacja.Sceny
         public ProstokatScena()
         {
             this.InitializeComponent();
-            if (AppSettings.Current.BokAProstokat != 0 && AppSettings.Current.BokBProstokat != 0)
-            {
-                DlugoscBokuATextBlock.Text = AppSettings.Current.BokAProstokat.ToString();
-                DlugoscBokuBTextBlock.Text = AppSettings.Current.BokBProstokat.ToString();
-            }
+            Oblicz(AppSettings.Current.BokAProstokat, AppSettings.Current.BokBProstokat);
         }
 
         private void Oblicz_Button_Click(object sender, RoutedEventArgs e)
@@ -38,13 +34,15 @@ namespace Nawigacja.Sceny
             bokA = double.Parse(DlugoscBokuATextBlock.Text);
             double bokB;
             bokB = double.Parse(DlugoscBokuBTextBlock.Text);
+            Oblicz(bokA, bokB);
+        }
+
+        private void Oblicz(double bokA, double bokB)
+        {
             double obwod = bokA * 2 + bokB * 2;
             double pole = bokA * bokB;
             obwodWynik_TB.Text = obwod.ToString();
             poleWynik_TB.Text = pole.ToString();
-
-            AppSettings.Current.BokAProstokat = bokA;
-            AppSettings.Current.BokBProstokat = bokB;
         }
 
         private void Powrot_Button_Click(object sender, RoutedEventArgs e)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,19 +9,27 @@ using Windows.UI.Xaml;
 
 namespace Nawigacja
 {
-    static class AppSettings
+    
+    class AppSettings : INotifyPropertyChanged
     {
-        private static AppSettingsCurrent current = new AppSettingsCurrent();
-        public static AppSettingsCurrent Current { get => current;}
 
-    }
+        public static AppSettings Current { get; }  = new AppSettings();
 
-    class AppSettingsCurrent : INotifyPropertyChanged
-    {
-        public event PropertyChangedEventHandler PropertyChanged = delegate { };
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private  ApplicationTheme _theme = ApplicationTheme.Light;
         private  string _themeSTR = "Light";
+        private double _bokKwadrat;
+        private double _bokAProstokat;
+        private double _bokBProstokat;
+        private double _podstawaTrojkat;
+        private double _promienKola;
+        private string _imie;
+        private string _nazwisko;
+        private DateTimeOffset _dataUr;
+        private double _masaCiala;
+        private double _wzrost;
+        private double _zarobki;
 
         public  ApplicationTheme Theme
         {
@@ -28,7 +37,7 @@ namespace Nawigacja
             set
             {
                 _theme = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Theme"));
+                RaisePropertyChanged("Theme");
             }
         }
 
@@ -42,13 +51,13 @@ namespace Nawigacja
                 {
                     Theme = ApplicationTheme.Dark;
                     _themeSTR = value;
-                    PropertyChanged(this, new PropertyChangedEventArgs("ZmianaTheme"));
+                    RaisePropertyChanged("ZmianaTheme");
                 }
                 else if (_themeSTR == "Light")
                 {
                     Theme = ApplicationTheme.Light;
                     _themeSTR = value;
-                    PropertyChanged(this, new PropertyChangedEventArgs("ZmianaTheme"));
+                    RaisePropertyChanged("ZmianaTheme");
                 }
 
             }
@@ -59,7 +68,7 @@ namespace Nawigacja
             set
             {
                 _bokKwadrat = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("BokKwadrat"));
+                RaisePropertyChanged("BokKwadrat");
             }
         }
         public double BokAProstokat {
@@ -68,7 +77,7 @@ namespace Nawigacja
             set
             {
                 _bokAProstokat = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("BokAProstokat"));
+                RaisePropertyChanged("BokAProstokat");
             }
         }
         public double BokBProstokat {
@@ -76,7 +85,7 @@ namespace Nawigacja
             set
             {
                 _bokBProstokat = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("BokBProstokat"));
+                RaisePropertyChanged("BokBProstokat");
             }
         }
         public double PodstawaTrojkat 
@@ -84,7 +93,7 @@ namespace Nawigacja
             set
             {
                 _podstawaTrojkat = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("PodstawaTrojkat"));
+                RaisePropertyChanged("PodstawaTrojkat");
             }
         }
         public double PromienKola { 
@@ -92,14 +101,80 @@ namespace Nawigacja
             set 
             {
                 _promienKola = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("PromienKola"));
+                RaisePropertyChanged("PromienKola");
             }
         }
 
-        double _bokKwadrat;
-        double _bokAProstokat;
-        double _bokBProstokat;
-        double _podstawaTrojkat;
-        double _promienKola;
+        public string Imie
+        {
+            get => _imie;
+            set
+            {
+                _imie = value;
+                RaisePropertyChanged("Imie");
+
+            }
+        }
+        public string Nazwisko
+        {
+            get => _nazwisko; 
+            set
+            {
+                _nazwisko = value;
+                RaisePropertyChanged("Nazwisko");
+
+            }
+        }
+        public DateTimeOffset DataUr
+        {
+            get => _dataUr; 
+            set
+            {
+                _dataUr = value;
+                RaisePropertyChanged("DataUr");
+
+            }
+        }
+        public double MasaCiala
+        {
+            get
+            {
+                return UnitConverter.ReadConvert(_masaCiala, Unit.kilogram);
+            }
+            set
+            {
+                _masaCiala = UnitConverter.SaveConvert(value, Unit.kilogram);
+                RaisePropertyChanged("MasaCiala");
+
+            }
+        }
+        public double Wzrost
+        {
+            get
+            {
+                return UnitConverter.ReadConvert(_wzrost, Unit.metr);
+            }
+            set
+            {
+                _wzrost = UnitConverter.SaveConvert(value, Unit.metr);
+                RaisePropertyChanged("Wzrost");
+
+            }
+        }
+        public double Zarobki
+        {
+            get => _zarobki; 
+            set
+            {
+                _zarobki = value;
+                RaisePropertyChanged("Zarobki");
+            }
+        }
+
+        protected void RaisePropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
     }
 }

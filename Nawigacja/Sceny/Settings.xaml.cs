@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Globalization;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -36,6 +38,33 @@ namespace Nawigacja.Sceny
         {
             AppSettings.Current.ThemeSTR = "Light";
         }
-        
+
+        private void JAngielski_Button_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            ApplicationLanguages.PrimaryLanguageOverride = "en-US";
+            CultureInfo.CurrentCulture.ClearCachedData();
+            Windows.ApplicationModel.Resources.Core.ResourceContext.GetForCurrentView().Reset();
+            Windows.ApplicationModel.Resources.Core.ResourceContext.GetForViewIndependentUse().Reset();
+            Frame.Navigate(this.GetType());
+            Frame.GoBack();
+
+        }
+
+        private void JPolski_Button_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            ApplicationLanguages.PrimaryLanguageOverride = "pl-PL";
+            CultureInfo.CurrentCulture.ClearCachedData();
+            Windows.ApplicationModel.Resources.Core.ResourceContext.GetForCurrentView().Reset();
+            Windows.ApplicationModel.Resources.Core.ResourceContext.GetForViewIndependentUse().Reset();
+            Frame.Navigate(this.GetType());
+            Frame.GoBack();
+        }
+
+        private void PanelNawigacyjny_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+        {
+            if (Frame.CanGoBack)
+                Frame.GoBack();
+        }
+
     }
 }

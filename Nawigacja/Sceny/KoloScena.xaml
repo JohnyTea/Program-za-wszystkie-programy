@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Nawigacja.Sceny"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local1="using:Nawigacja"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -22,24 +22,24 @@
         </Grid.ColumnDefinitions>
 
 
-        <TextBlock Text="Oblicz pole i obwod Kola" Grid.Row="0" Grid.ColumnSpan="3"
+        <TextBlock x:Uid="KołoNagłówek" Grid.Row="0" Grid.ColumnSpan="3"
                    Grid.Column="0" FontSize="48" HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>
 
-        <TextBox x:Name="Promien_TextBlock" Grid.Row="1" Grid.Column="0" FontSize="70" PlaceholderText="Promien"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox x:Name="Promien_TextBlock" Grid.Row="1" Grid.Column="0" FontSize="70" x:Uid="txt_Promien"  HorizontalAlignment="Center" VerticalAlignment="Center" Text="{x:Bind Mode=TwoWay, Path=local1:AppSettings.Current.PromienKola}" />
        
-        <Button x:Name="Oblicz_Btn" Grid.Row="1" Grid.Column="1" Content="Oblicz" FontSize="48" 
+        <Button x:Name="Oblicz_Btn" Grid.Row="1" Grid.Column="1" x:Uid="txt_oblicz" FontSize="48" 
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Margin="10,25,10,10"  Click="Oblicz_Button_Click"/>
-        <Button Grid.Row="4"  Grid.Column="1" Content="Powrót" FontSize="48"
-                Margin="10,10,10,10" 
+                 Click="Oblicz_Button_Click"/>
+        <Button Grid.Row="4"  Grid.Column="1" x:Uid="txt_powrót" FontSize="48"
                 HorizontalAlignment="Center" VerticalAlignment="Center"  Click="Powrot_Button_Click"/>
 
 
-        <TextBlock Text="Pole" Grid.Row="2" Grid.Column="0"
+        <TextBlock x:Uid="txt_pole" Grid.Row="2" Grid.Column="0"
                    FontSize="48" HorizontalAlignment="Center"
                    VerticalAlignment="Center"  />
-        <TextBlock Text="Obwód" Grid.Row="2" Grid.Column="3"
+        
+        <TextBlock x:Uid="txt_obwod" Grid.Row="2" Grid.Column="3"
                    FontSize="48" HorizontalAlignment="Center"
                    VerticalAlignment="Center"  />
 

@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppName" xml:space="preserve">
+    <value>The best programm ever</value>
+    <comment>Nazwa Aplikacji</comment>
+  </data>
+  <data name="brakSugestii_str" xml:space="preserve">
+    <value>No Suggestion</value>
+    <comment>Podpowiedz</comment>
+  </data>
+  <data name="con_angielski.Content" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="con_fajneFigury.Content" xml:space="preserve">
+    <value>Fun Figures</value>
+    <comment>Fajna Matematyka</comment>
+  </data>
+  <data name="con_fajneFigury2.Content" xml:space="preserve">
+    <value>Also Fun Figures</value>
+    <comment>Fajna Matematyka</comment>
+  </data>
+  <data name="con_polski.Content" xml:space="preserve">
+    <value>Polish</value>
+  </data>
+  <data name="con_statystyki.Content" xml:space="preserve">
+    <value>Statistic</value>
+    <comment>Statystyki</comment>
+  </data>
+  <data name="con_tlumaczenie.Content" xml:space="preserve">
+    <value>Translate</value>
+    <comment>Tłumaczenie zawartości na inny język</comment>
+  </data>
+  <data name="con_zapisz.Content" xml:space="preserve">
+    <value>Save</value>
+    <comment>Zapisz zawartość</comment>
+  </data>
+  <data name="GłównyTytuł.Text" xml:space="preserve">
+    <value>Covid-19</value>
+    <comment>Zabawna nazwa Covid-19</comment>
+  </data>
+  <data name="KołoNagłówek.Text" xml:space="preserve">
+    <value>Calculate the area and circumference of the Circle</value>
+    <comment>Matematyka</comment>
+  </data>
+  <data name="koło_str" xml:space="preserve">
+    <value>Translate</value>
+    <comment>Matematyka</comment>
+  </data>
+  <data name="kwadrat_str" xml:space="preserve">
+    <value>Square</value>
+    <comment>Matematyka</comment>
+  </data>
+  <data name="prostokat_str" xml:space="preserve">
+    <value>Rectangle</value>
+    <comment>Matematyka</comment>
+  </data>
+  <data name="ptxt_dataUrodzenia.PlaceholderText" xml:space="preserve">
+    <value>mm.dd.yyyy</value>
+  </data>
+  <data name="ptxt_imie.PlaceholderText" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ptxt_masaCiala.PlaceholderText" xml:space="preserve">
+    <value>Punds</value>
+  </data>
+  <data name="ptxt_nazwisko.PlaceholderText" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="ptxt_wzrost.PlaceholderText" xml:space="preserve">
+    <value>Foots</value>
+  </data>
+  <data name="ptxt_zarobki.PlaceholderText" xml:space="preserve">
+    <value>$</value>
+  </data>
+  <data name="source_ImagePath.Source" xml:space="preserve">
+    <value>/Assets/Images/en-US/SGS.jpg</value>
+    <comment>Path zdjęcia kartki świątecznej po polsku</comment>
+  </data>
+  <data name="trojkat_str" xml:space="preserve">
+    <value>Triangle</value>
+    <comment>Matematyka</comment>
+  </data>
+  <data name="txt_DaneOsobowe.Text" xml:space="preserve">
+    <value>Personal Data</value>
+    <comment>Dane Osoby</comment>
+  </data>
+  <data name="txt_dataUrodzenia.Text" xml:space="preserve">
+    <value>Day of Birth</value>
+    <comment>Data urodzenia Człowieka</comment>
+  </data>
+  <data name="txt_DlugoscBoku.PlaceholderText" xml:space="preserve">
+    <value>Length</value>
+    <comment>Matematyka</comment>
+  </data>
+  <data name="txt_imie.Text" xml:space="preserve">
+    <value>Name</value>
+    <comment>Imie</comment>
+  </data>
+  <data name="txt_koło.Text" xml:space="preserve">
+    <value>Circle</value>
+    <comment>Matematyka</comment>
+  </data>
+  <data name="txt_kwadrat.Text" xml:space="preserve">
+    <value>Square</value>
+    <comment>Matematyka</comment>
+  </data>
+  <data name="txt_KwadratNagłówek.Text" xml:space="preserve">
+    <value>Calculate the area and circumference of the Square</value>
+    <comment>Matematyka</comment>
+  </data>
+  <data name="txt_masaCiala.Text" xml:space="preserve">
+    <value>Body Weight</value>
+    <comment>Masa Ciała</comment>
+  </data>
+  <data name="txt_nazwisko.Text" xml:space="preserve">
+    <value>Last Name</value>
+    <comment>Naziwsko</comment>
+  </data>
+  <data name="txt_oblicz.Content" xml:space="preserve">
+    <value>Calculate</value>
+    <comment>Przycisk Liczący</comment>
+  </data>
+  <data name="txt_obwod.Text" xml:space="preserve">
+    <value>Circumference</value>
+    <comment>Matematyka</comment>
+  </data>
+  <data name="txt_pole.Text" xml:space="preserve">
+    <value>Area</value>
+    <comment>Matematyka</comment>
+  </data>
+  <data name="txt_powrót.Content" xml:space="preserve">
+    <value>Back</value>
+    <comment>Przycisk Powrotu</comment>
+  </data>
+  <data name="txt_profilaktyka.Text" xml:space="preserve">
+    <value>Prevention</value>
+    <comment>Profilaktyka</comment>
+  </data>
+  <data name="txt_Promien.PlaceholderText" xml:space="preserve">
+    <value>Radius</value>
+    <comment>Matematyczny w Kole</comment>
+  </data>
+  <data name="txt_prostokat.Text" xml:space="preserve">
+    <value>Rectangle</value>
+    <comment>Matematyka</comment>
+  </data>
+  <data name="txt_ProstokątNagłówek.Text" xml:space="preserve">
+    <value>Calculate the area and circumference of the Rectangle</value>
+    <comment>Matematyka</comment>
+  </data>
+  <data name="txt_statystyki.Text" xml:space="preserve">
+    <value>Statistic</value>
+    <comment>Statystyki</comment>
+  </data>
+  <data name="txt_szukaj.PlaceholderText" xml:space="preserve">
+    <value>Search</value>
+    <comment>Czasownik Szukaj</comment>
+  </data>
+  <data name="txt_trojkat.Text" xml:space="preserve">
+    <value>Triangle</value>
+    <comment>Matematyka</comment>
+  </data>
+  <data name="txt_TrójkątNagłówek.Text" xml:space="preserve">
+    <value>Calculate the area and circumference of the Triangle</value>
+    <comment>Matematyka</comment>
+  </data>
+  <data name="txt_ustawienia.Text" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Przycisk Ustawienia</comment>
+  </data>
+  <data name="txt_wzrost.Text" xml:space="preserve">
+    <value>Height</value>
+    <comment>Wzrost Człowieka</comment>
+  </data>
+  <data name="txt_zarobki.Text" xml:space="preserve">
+    <value>Earnings</value>
+    <comment>Zarobki Człowieka</comment>
+  </data>
+  <data name="txt_Zdjecie.Text" xml:space="preserve">
+    <value>Photo</value>
+    <comment>Zdjęcie</comment>
+  </data>
+  <data name="zdanie_str" xml:space="preserve">
+    <value>Veriable = {1} = Veriable</value>
+  </data>
+</root>

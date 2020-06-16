@@ -14,7 +14,7 @@
   <mp:PhoneIdentity PhoneProductId="812a26e1-ed19-49df-94fb-55bd83a034de" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Nawigacja</DisplayName>
+    <DisplayName>ms-resource:AppName</DisplayName>
     <PublisherDisplayName>johna</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -32,7 +32,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="Nawigacja.App">
       <uap:VisualElements
-        DisplayName="Nawigacja"
+        DisplayName="ms-resource:AppName"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="Nawigacja"

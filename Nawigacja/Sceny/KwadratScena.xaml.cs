@@ -25,8 +25,7 @@ namespace Nawigacja.Sceny
         public KwadratScena()
         {
             this.InitializeComponent();
-            if (AppSettings.Current.BokKwadrat != 0)
-                DlugoscBokuTextBlock.Text = AppSettings.Current.BokKwadrat.ToString();
+            Oblicz(AppSettings.Current.BokKwadrat);
         }
 
        
@@ -35,11 +34,15 @@ namespace Nawigacja.Sceny
         {
             double bok;
             bok = double.Parse(DlugoscBokuTextBlock.Text);
+            Oblicz(bok);
+        }
+
+        private void Oblicz(double bok)
+        {
             double obwod = bok * 4;
             double pole = bok * bok;
             obwodWynik_TB.Text = obwod.ToString();
             poleWynik_TB.Text = pole.ToString();
-            AppSettings.Current.BokKwadrat = bok;
         }
 
         private void Powrot_Button_Click(object sender, RoutedEventArgs e)

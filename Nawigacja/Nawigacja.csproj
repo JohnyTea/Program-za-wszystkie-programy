@@ -149,6 +149,7 @@
       <DependentUpon>TrojkatScena.xaml</DependentUpon>
     </Compile>
     <Compile Include="SettingsTheme.cs" />
+    <Compile Include="UnitConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -156,6 +157,8 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\en-US\SGS.jpg" />
+    <Content Include="Assets\Images\pl-PL\SGS.jpg" />
     <Content Include="Assets\kolo.jpg" />
     <Content Include="Assets\kwadrat.jpg" />
     <Content Include="Assets\prostokat.jpg" />
@@ -215,6 +218,12 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.10</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\pl-PL\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

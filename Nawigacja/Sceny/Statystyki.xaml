@@ -1,10 +1,10 @@
 ﻿<Page
     x:Class="Nawigacja.Statystyki"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Nawigacja"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:Nawigacja"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -15,21 +15,55 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Frame x:Name="ContentFrame" Grid.RowSpan="2" Grid.ColumnSpan="2">
-            <Frame.ContentTransitions>
-                <TransitionCollection>
-                    <NavigationThemeTransition/>
-                </TransitionCollection>
-            </Frame.ContentTransitions>
-        </Frame>
+        <TextBlock x:Uid="txt_imie" Grid.Row="0" Grid.Column="0"
+                   FontSize="48" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"  />
+        <TextBlock x:Uid="txt_nazwisko" Grid.Row="1" Grid.Column="0"
+                   FontSize="48" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"  />
+        <TextBlock x:Uid="txt_dataUrodzenia" Grid.Row="2" Grid.Column="0"
+                   FontSize="48" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"  />
+        <TextBlock x:Uid="txt_wzrost" Grid.Row="3" Grid.Column="0"
+                   FontSize="48" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"  />
+        <TextBlock x:Uid="txt_masaCiala" Grid.Row="4" Grid.Column="0"
+                   FontSize="48" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"  />
+        <TextBlock x:Uid="txt_zarobki" Grid.Row="5" Grid.Column="0"
+                   FontSize="48" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"  />
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Statystyki" FontSize="48"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBlock Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"
-Text="W środę, 04.03.2020 podczas konferencji prasowej minister zdrowia prof. Łukasz Szumowski poinformował o pierwszym przypadku koronawirusa w Polsce. Wszystkie procedury zadziałały prawidłowo, a pacjent w dobrym stanie znajduje się w szpitalu. W sumie wykonano już 584 testy, a tylko jeden wynik był dodatni."
-                   FontSize="45" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="Imie_TextBox" Grid.Row="0" Grid.Column="1" FontSize="70" x:Uid="ptxt_imie"  HorizontalAlignment="Center" VerticalAlignment="Center"
+                 Text="{x:Bind Mode=TwoWay, Path=local:AppSettings.Current.Imie}"/>
+        
+        <TextBox x:Name="Nazwisko_TextBox" Grid.Row="1" Grid.Column="1" FontSize="70" x:Uid="ptxt_nazwisko"  HorizontalAlignment="Center" VerticalAlignment="Center"
+                 Text="{x:Bind Mode=TwoWay, Path=local:AppSettings.Current.Nazwisko}"/>
+
+        <DatePicker x:Name="DataUrodzenia_DateTimePicker" Date="{x:Bind Mode=TwoWay, Path=local:AppSettings.Current.DataUr}" Grid.Column="1"  Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" DateChanged="DataTimePicker_DataChanger"/>
+
+        
+        <TextBox x:Name="Wzrost_TextBox" Grid.Row="3" Grid.Column="1" FontSize="70" x:Uid="ptxt_wzrost"  HorizontalAlignment="Center" VerticalAlignment="Center"
+                 Text="{x:Bind Mode=TwoWay, Path=local:AppSettings.Current.Wzrost}"/>
+        
+        <TextBox x:Name="MasaCiala_TextBox" Grid.Row="4" Grid.Column="1" FontSize="70" x:Uid="ptxt_masaCiala"  HorizontalAlignment="Center" VerticalAlignment="Center"
+                 Text="{x:Bind Mode=TwoWay, Path=local:AppSettings.Current.MasaCiala}"/>
+        
+        <TextBox x:Name="Zarobki_TextBox" Grid.Row="5" Grid.Column="1" FontSize="70" x:Uid="ptxt_zarobki"  HorizontalAlignment="Center" VerticalAlignment="Center"
+                 Text="{x:Bind Mode=TwoWay, Path=local:AppSettings.Current.Zarobki}"/>
+
+        <TextBlock x:Name="Zdanie_TextBlock" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                   FontSize="48" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"  />
+
+
     </Grid>
 </Page>

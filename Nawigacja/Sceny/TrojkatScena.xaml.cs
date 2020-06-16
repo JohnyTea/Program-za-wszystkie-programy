@@ -25,20 +25,23 @@ namespace Nawigacja.Sceny
         public TrojkatScena()
         {
             this.InitializeComponent();
-            if(AppSettings.Current.PodstawaTrojkat != 0)
-            PodstawaTextBlock.Text = AppSettings.Current.PodstawaTrojkat.ToString();
+            Oblicz(AppSettings.Current.PodstawaTrojkat);
         }
 
         private void Oblicz_Button_Click(object sender, RoutedEventArgs e)
         {
             double podstawa;
             podstawa = double.Parse(PodstawaTextBlock.Text);
+            Oblicz(podstawa);
+
+        }
+        private void Oblicz(double podstawa)
+        {
             double obwod = podstawa * 3;
-            double pole = podstawa*podstawa*Math.Sqrt(3)/4;
+            double pole = podstawa * podstawa * Math.Sqrt(3) / 4;
             obwodWynik_TB.Text = obwod.ToString();
             poleWynik_TB.Text = pole.ToString();
 
-           AppSettings.Current.PodstawaTrojkat = podstawa;
         }
 
         private void Powrot_Button_Click(object sender, RoutedEventArgs e)

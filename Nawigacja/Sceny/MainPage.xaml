@@ -21,48 +21,48 @@
 
             <NavigationView.PaneHeader>
                 <RelativePanel HorizontalAlignment="Center" VerticalAlignment="Center"  Width="auto" Height="auto">
-                    <Image x:Name="Logo" Source="Assets/StoreLogo.png" HorizontalAlignment="Left"/>
-                    <TextBlock Text="Koronka" FontSize="40" RelativePanel.RightOf="Logo" VerticalAlignment="Center" />
+                    <Image x:Name="Logo" Source="/Assets/StoreLogo.png" HorizontalAlignment="Left"/>
+                    <TextBlock x:Uid="GłównyTytuł" FontSize="40" RelativePanel.RightOf="Logo" VerticalAlignment="Center" />
                 </RelativePanel>
             </NavigationView.PaneHeader>
 
             <NavigationView.MenuItems>
-                <AutoSuggestBox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" PlaceholderText="Szukaj" QueryIcon="Find" Width="200" TextChanged="AutoSuggestBox_TextChanged" />
+                <AutoSuggestBox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" x:Uid="txt_szukaj" QueryIcon="Find" Width="200" TextChanged="AutoSuggestBox_TextChanged" />
 
                 <NavigationViewItemSeparator/>
-                
-                <NavigationViewItemHeader x:Name="HistoriaHeader" Content="Fajne Figury"  />
+
+                <NavigationViewItemHeader x:Name="HistoriaHeader" x:Uid="con_fajneFigury"  />
 
                 <NavigationViewItem Tag="opcja1" x:Name="Prostokat" Tapped="Prostokat_Tapped" Icon="Calendar">
-                    <TextBlock Text="Prostokat"/>
+                    <TextBlock x:Uid="txt_prostokat"/>
                 </NavigationViewItem>
 
                 <NavigationViewItem Tag ="opcja2" x:Name="Kwadrat" Tapped="Kwadrat_Tapped" Icon="Calculator">
-                    <TextBlock   Text="Kwadrat"/>
+                    <TextBlock   x:Uid="txt_kwadrat"/>
                 </NavigationViewItem>
                 
                 <NavigationViewItemSeparator/>
 
-                <NavigationViewItemHeader Content="Tez Fajne Figury" />
+                <NavigationViewItemHeader x:Uid="con_fajneFigury2" />
 
                 <NavigationViewItem Tag="opcja3" Icon="Calculator"  x:Name="Kolo" Tapped="Kolo_Tapped">
-                    <TextBlock   Text="Koło"/>
+                    <TextBlock   x:Uid="txt_koło"/>
                 </NavigationViewItem>
 
                 <NavigationViewItem Tag="opcja4" Icon="Calculator" x:Name="Trojkat" Tapped="Trojkat_Tapped">
-                    <TextBlock   Text="Trójkąt"/>
+                    <TextBlock   x:Uid="txt_trojkat"/>
                 </NavigationViewItem>
                 
                 <NavigationViewItemSeparator/>
 
-                <NavigationViewItemHeader Content="Statystyki"/>
+                <NavigationViewItemHeader x:Uid="con_tlumaczenie" />
 
                 <NavigationViewItem Tag="opcja5" Icon="CalendarWeek" x:Name="Statystyki" Tapped="Statystyki_Tapped">
-                    <TextBlock Text="Statystyki"/>
+                    <TextBlock x:Uid="txt_DaneOsobowe"/>
                 </NavigationViewItem>
 
                 <NavigationViewItem Tag="opcja6" Icon="Accept" x:Name="Profilaktyka" Tapped="Profilaktyka_Tapped">
-                    <TextBlock Text="Profilaktyka"/>
+                    <TextBlock x:Uid="txt_Zdjecie"/>
                 </NavigationViewItem>
 
             </NavigationView.MenuItems>

@@ -24,14 +24,16 @@
         <Image Source="/Assets/kwadrat.jpg" Grid.Row="1" Grid.Column="0" x:Name="ProstokatPole_Img" Tapped="Kwadrat_Img_Tapped"/>
         <Image Source="/Assets/prostokat.jpg" Grid.Row="1" Grid.Column="1" x:Name="ProstokatObwod_Img" Tapped="Prostokat_Img_Tapped"/>
 
-        <TextBlock Text="Trojkat" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" FontSize="80" Foreground="#FF958CF0" FontFamily="Curlz MT" VerticalAlignment="Bottom" 
+        <TextBlock x:Uid="txt_trojkat" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" FontSize="80" Foreground="#FF958CF0" FontFamily="Curlz MT" VerticalAlignment="Bottom" 
                      />
-        <TextBlock Text="Kwadrat" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="80" Foreground="#FF958CF0" FontFamily="Curlz MT"
+        <TextBlock x:Uid="txt_kwadrat" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="80" Foreground="#FF958CF0" FontFamily="Curlz MT"
                      />
-        <TextBlock Text="Koło" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="80" Foreground="#FF958CF0" FontFamily="Curlz MT"
+        <TextBlock x:Uid="txt_koło"  Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="80" Foreground="#FF958CF0" FontFamily="Curlz MT"
                      />
-        <TextBlock Text="Prostokąt" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="80" Foreground="#FF958CF0" FontFamily="Curlz MT"
+        <TextBlock x:Uid="txt_prostokat"  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="80" Foreground="#FF958CF0" FontFamily="Curlz MT"
                      />
+
+        
 
     </Grid>
 </Page>

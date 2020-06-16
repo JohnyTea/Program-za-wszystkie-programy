@@ -25,19 +25,24 @@ namespace Nawigacja.Sceny
         public KoloScena()
         {
             this.InitializeComponent();
-            if (AppSettings.Current.PromienKola != 0)
-                Promien_TextBlock.Text = AppSettings.Current.PromienKola.ToString();
+            //if (AppSettings.Current.PromienKola != 0)
+            //    Promien_TextBlock.Text = AppSettings.Current.PromienKola.ToString();
+            Oblicz(AppSettings.Current.PromienKola);
         }
 
         private void Oblicz_Button_Click(object sender, RoutedEventArgs e)
         {
             double promien = double.Parse(Promien_TextBlock.Text);
 
+            Oblicz(promien);
+        }
+
+        private void Oblicz(double promien)
+        {
             double obwod = 2 * Math.PI * promien;
             double pole = Math.PI * Math.Pow(promien, 2);
             obwodWynik_TB.Text = obwod.ToString();
             poleWynik_TB.Text = pole.ToString();
-            AppSettings.Current.PromienKola = promien;
         }
 
         private void Powrot_Button_Click(object sender, RoutedEventArgs e)
